@@ -1,4 +1,4 @@
-# Update checklist
+# Update checklistq
 
 This is for me when releasing updates, because otherwise I forget things
 
