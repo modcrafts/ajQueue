@@ -147,6 +147,15 @@ public class EventHandlerImpl implements EventHandler {
             main.getLogger().warning("Failed to send "+player.getName()+" to "+from.getName()+". Kicked with reason: "+plainReason);
         }
 
+        List<String> kickProxyReasons = main.getConfig().getStringList("kick-proxy-reasons");
+        for(String kickReason : kickProxyReasons) {
+            if(plainReason.toLowerCase().contains(kickReason.toLowerCase())) {
+                Debug.info(player.getName()+" kicked by triggered kick-proxy-reasons");
+                player.kick(reason);
+                return;
+            }
+        }
+
         ImmutableList<QueueServer> queuedServers = main.getQueueManager().getPlayerQueues(player);
         if(!queuedServers.contains(main.getQueueManager().findServer(from.getName())) && main.getConfig().getBoolean("auto-add-to-queue-on-kick")) {
 

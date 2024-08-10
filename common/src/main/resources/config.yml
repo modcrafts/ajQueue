@@ -66,6 +66,9 @@ kick-reasons:
   - 'banned'
   - 'blacklisted'
 
+# Kick player out the proxy when trigger the reasons below.
+kick-proxy-reasons: []
+
 
 # When a player is kicked from a server, should we automatically add that player to the queue?
 # On BungeeCord, you will still need to use another plugin to make sure the player doesn't get kicked from the proxy completely.
